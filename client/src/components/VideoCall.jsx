@@ -1,3 +1,5 @@
+// client/src/components/VideoCall.jsx    
+
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
