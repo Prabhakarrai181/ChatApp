@@ -63,8 +63,7 @@ const ChatContainer = () => {
     socket.on("incoming-call", handleIncomingCall);
     return () => socket.off("incoming-call", handleIncomingCall);
   }, [socket, selectedUser]);
-    const [incomingCallData, setIncomingCallData] = useState(null);
-{ from, offer, callerName }
+    
 
 // useEffect(() => {
 //   if (!socket) return;
