@@ -55,28 +55,28 @@ const ChatContainer = () => {
         }
     },[messages])
 
-//   useEffect(() => {
-//     if (!socket || !selectedUser) return;
-//     const handleIncomingCall = ({ from, offer }) => {
-//       if (from === selectedUser._id) setIncomingCall({ offer });
-//     };
-//     socket.on("incoming-call", handleIncomingCall);
-//     return () => socket.off("incoming-call", handleIncomingCall);
-//   }, [socket, selectedUser]);
-//     const [incomingCallData, setIncomingCallData] = useState(null);
-// { from, offer, callerName }
+  useEffect(() => {
+    if (!socket || !selectedUser) return;
+    const handleIncomingCall = ({ from, offer }) => {
+      if (from === selectedUser._id) setIncomingCall({ offer });
+    };
+    socket.on("incoming-call", handleIncomingCall);
+    return () => socket.off("incoming-call", handleIncomingCall);
+  }, [socket, selectedUser]);
+    const [incomingCallData, setIncomingCallData] = useState(null);
+{ from, offer, callerName }
 
-useEffect(() => {
-  if (!socket) return;
+// useEffect(() => {
+//   if (!socket) return;
 
-  const handleIncomingCall = ({ from, offer, callerName }) => {
-    setIncomingCallData({ from, offer, callerName });
-  };
+//   const handleIncomingCall = ({ from, offer, callerName }) => {
+//     setIncomingCallData({ from, offer, callerName });
+//   };
 
-  socket.on("incoming-call", handleIncomingCall);
+//   socket.on("incoming-call", handleIncomingCall);
 
-  return () => socket.off("incoming-call", handleIncomingCall);
-}, [socket]);
+//   return () => socket.off("incoming-call", handleIncomingCall);
+// }, [socket]);
 
   return selectedUser ? (
     <div className='h-full overflow-scroll relative backdrop-blur-lg'>
